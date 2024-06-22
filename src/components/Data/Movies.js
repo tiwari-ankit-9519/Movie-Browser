@@ -1,46 +1,22 @@
-import React from "react";
+import MovieCard from "../UI/MovieCard";
 import useMovies from "../Hooks/useMovie";
 
-const Movies = () => {
-  const { movies, page, setPage, loading, error } = useMovies();
+export default function Movies() {
+  const { movies } = useMovies();
+
   console.log(movies);
 
-  const handleNextPage = () => {
-    setPage(page + 1);
-  };
-
-  const handlePreviousPage = () => {
-    if (page > 1) {
-      setPage(page - 1);
-    }
-  };
-
   return (
-    <div>
-      {loading && <p>Loading...</p>}
-      {error && <p>Error: {error}</p>}
-      {movies.map((movie) => (
-        <div key={movie.id}>
-          <h1 className="text-white">{movie.title}</h1>
-        </div>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 mx-10">
+      {movies.map((m) => (
+        <MovieCard
+          key={m.id}
+          title={m.title}
+          overview={m.overview}
+          poster_path={m.backdrop_path}
+          vote={m.vote_average}
+        />
       ))}
-      <div className="flex gap-10">
-        <button
-          onClick={handlePreviousPage}
-          disabled={page === 1}
-          className="text-white bg-gray-400 rounded p-2 min-w-20 "
-        >
-          Previous
-        </button>
-        <button
-          onClick={handleNextPage}
-          className="text-white bg-gray-400 rounded p-2 min-w-20"
-        >
-          Next
-        </button>
-      </div>
     </div>
   );
-};
-
-export default Movies;
+}

@@ -23,9 +23,7 @@ const useMovies = (initialPage = 1) => {
   }, [page]);
 
   useEffect(() => {
-    setTimeout(() => {
-      fetchMovieData();
-    }, 2000);
+    fetchMovieData();
   }, [fetchMovieData]);
 
   return { movies, page, setPage, loading, error };

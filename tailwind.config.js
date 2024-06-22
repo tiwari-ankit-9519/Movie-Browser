@@ -8,6 +8,8 @@ module.exports = {
         buttonBg: "#001F54",
         buttonBg2: "#034078",
         hoverBg: "#35A7FF",
+        card: "#2E294E",
+        watch: "#0067fe",
       },
     },
   },
