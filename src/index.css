@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat+Subrayada:regular,700);
+
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #1C3144;
+}
+
+code {
+  font-family: 'Montserrat', sans-serif;
+}
