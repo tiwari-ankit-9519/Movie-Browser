@@ -6,23 +6,28 @@ import {
   HomeIcon,
   Bars3CenterLeftIcon,
 } from "@heroicons/react/16/solid";
+import { Link } from "react-router-dom";
 
 const buttonNames = [
   {
     name: "Home",
     icon: <HomeIcon className="w-5 h-5 md:w-5 md:h-5" />,
+    to: "/",
   },
   {
     name: "Trending",
     icon: <FireIcon className="w-5 h-5 md:w-5 md:h-5" />,
+    to: "/trending",
   },
   {
     name: "Movies",
     icon: <FilmIcon className="w-5 h-5 md:w-5 md:h-5" />,
+    to: "/movies",
   },
   {
     name: "TV",
     icon: <TvIcon className="w-5 h-5 md:w-5 md:h-5" />,
+    to: "/tv",
   },
 ];
 
@@ -38,13 +43,14 @@ export default function Navbar() {
           onClick={() => setShowMenu(!showMenu)}
         />
         {buttonNames.map((button) => (
-          <button
+          <Link
+            to={button.to}
             key={button.name}
             className="bg-gradient-to-r from-buttonBg to-buttonBg2 hidden md:flex items-center justify-center font-medium gap-2 p-2 md:p-2 rounded text-sm md:text-base md:min-w-24"
           >
             {button.icon}
             {button.name}
-          </button>
+          </Link>
         ))}
       </div>
     </div>
