@@ -53,6 +53,7 @@ export default function Movies() {
             overview={m.overview}
             poster_path={m.backdrop_path}
             vote={m.vote_average}
+            id={m.id}
           />
         ))}
       </div>
