@@ -4,7 +4,7 @@ import axios from "axios";
 const useMovies = (initialPage = 1) => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(initialPage);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const fetchMovieData = useCallback(async () => {
