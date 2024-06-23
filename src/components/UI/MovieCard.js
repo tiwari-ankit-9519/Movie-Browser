@@ -2,25 +2,26 @@ import React from "react";
 
 export default function MovieCard({ title, overview, poster_path, vote }) {
   const imageLink = "https://image.tmdb.org/t/p/w500" + poster_path;
-  const rating = vote.toFixed(2);
-  // const description = overview.slice(0, 200) + "....";
+  const rating = vote.toFixed(1);
+  const description = overview.slice(0, 151) + "....";
 
   return (
-    <div className="bg-card shadow-lg max-h-80 border sm:rounded-3xl p-8 flex space-x-8 text-white">
-      <div className="overflow-visible w-1/2">
-        <img className="rounded-3xl shadow-lg h-60" src={imageLink} alt="" />
-      </div>
-      <div className="flex flex-col w-1/2 space-y-4">
-        <div className="flex justify-between items-start">
-          <h2 className="text-3xl font-bold">{title}</h2>
-          <div className="bg-yellow-400 font-bold rounded-xl p-2">{rating}</div>
+    <div className="grid grid-cols-2 md:grid-cols-1 bg-card rounded-xl gap-3 md:min-h-52">
+      <img
+        src={imageLink}
+        alt="logo"
+        className="h-full md:h-60 w-full rounded-tl-xl rounded-bl-xl md:rounded-bl-none md:rounded-tl-xl md:rounded-tr-xl lg:rounded-tl-xl lg:rounded-tr-xl"
+      />
+      <div className="flex flex-col mx-4 md:mb-5 gap-5 md:gap-0 mt-2 md:mt-0">
+        <div className="md:flex md:flex-row md:items-center md:justify-between md:mb-5">
+          <h2 className="text-white text-xl font-semibold">{title}</h2>
+          <p className="text-white text-sm bg-yellow-600 p-2 rounded-md md:block hidden">
+            {rating}
+          </p>
         </div>
-        <p className=" text-white max-h-40 overflow-y-hidden">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <button className="bg-watch rounded-md p-2 text-white">
-          Watch Now
+        <p className="text-white text-sm text-justify">{description}</p>
+        <button className="bg-watch text-white p-2 rounded-md mt-4 mb-4 md:mb-0">
+          Watch Movie
         </button>
       </div>
     </div>
