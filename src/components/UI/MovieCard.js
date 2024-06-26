@@ -27,11 +27,11 @@ export default function MovieCard({ title, overview, poster_path, vote, id }) {
   return (
     <>
       {loading && <LoadingComponent />}
-      <div className="grid grid-cols-2 md:grid-cols-1 bg-card rounded-xl gap-3 md:min-h-52">
+      <div className="grid grid-cols-1 md:grid-cols-1 bg-card rounded-xl gap-3 md:min-h-52">
         <img
           src={imageLink}
           alt="logo"
-          className="h-full object-cover md:h-60 w-full rounded-tl-xl rounded-bl-xl md:rounded-bl-none md:rounded-tl-xl md:rounded-tr-xl lg:rounded-tl-xl lg:rounded-tr-xl"
+          className="object-cover md:h-60 w-full rounded"
         />
         <div className="flex flex-col mx-4 md:mb-5 gap-5 md:gap-0 mt-2 md:mt-0">
           <div className="md:flex md:flex-row md:items-center md:justify-between md:mb-5">
