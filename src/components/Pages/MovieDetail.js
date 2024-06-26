@@ -11,8 +11,6 @@ export default function MovieDetail() {
   const { movie } = useSingleMovie();
   const { latestMovie, loading } = useLatestMovie();
 
-  console.log(latestMovie);
-
   const handleInfoButton = () => {
     setOpeInfo(!openInfo);
   };
@@ -90,7 +88,7 @@ export default function MovieDetail() {
         </div>
       </div>
       <h1 className="text-white ml-10 text-3xl">Popular Movies</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 mx-10">
+      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 mt-10 mx-10">
         {loading ? (
           <LoadingComponent />
         ) : (
