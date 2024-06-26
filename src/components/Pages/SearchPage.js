@@ -29,11 +29,12 @@ export default function SearchPage() {
   console.log(data);
   return (
     <div className="flex flex-col gap-5 mt-5 mx-10">
+      {error && <p>Some error occured</p>}
       <label className="text-white text-xl">Search Movies</label>
       <input
         type="text"
         name=""
-        className="p-5 foucs: border-blue-500 focus: border focus: outline-none"
+        className="p-5 foucs: border-blue-500 focus: border focus: outline-none rounded"
         onChange={searchMovie}
       />
 

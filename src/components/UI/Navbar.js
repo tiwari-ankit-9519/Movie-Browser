@@ -5,6 +5,7 @@ import {
   TvIcon,
   HomeIcon,
   Bars3CenterLeftIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/16/solid";
 import { Link } from "react-router-dom";
 
@@ -28,6 +29,11 @@ const buttonNames = [
     name: "TV",
     icon: <TvIcon className="w-5 h-5 md:w-5 md:h-5" />,
     to: "/tv",
+  },
+  {
+    name: "Search",
+    icon: <MagnifyingGlassIcon className="w-5 h-5 md:w-5 md:h-5" />,
+    to: "/search",
   },
 ];
 

@@ -7,6 +7,7 @@ import TVPage from "./components/Pages/TVPage";
 import SearchPage from "./components/Pages/SearchPage";
 import Trending from "./components/Pages/Trending";
 import Movies from "./components/Pages/Movies";
+import PageNotFound from "./components/Pages/PageNotFound";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/search" element={<SearchPage />} />
         <Route path="/trending" element={<Trending />} />
         <Route path="/movies" element={<Movies />} />
+        <Route path="/*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
