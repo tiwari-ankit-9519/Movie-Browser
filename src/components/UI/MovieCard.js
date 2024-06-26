@@ -13,7 +13,11 @@ export default function MovieCard({ title, overview, poster_path, vote, id }) {
   function handleWatch(id) {
     setLoading(true);
     const timeOutId = setTimeout(() => {
-      navigate(`movie/${id}?api_key=a010775c34fabfa9cef89de9fba2a335&page`);
+      navigate(`/movie/${id}?api_key=a010775c34fabfa9cef89de9fba2a335`);
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
       setLoading(false);
     }, 2000);
 

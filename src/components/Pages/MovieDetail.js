@@ -1,17 +1,23 @@
 import { useState } from "react";
 import useSingleMovie from "../Hooks/useSingleMovie";
+import useLatestMovie from "../Hooks/useLatestMovie";
 
 import { InformationCircleIcon, PlayIcon } from "@heroicons/react/16/solid";
+import MovieCard from "../UI/MovieCard";
+import LoadingComponent from "../UI/LoadingComponent";
 
 export default function MovieDetail() {
   const [openInfo, setOpeInfo] = useState(false);
   const { movie } = useSingleMovie();
+  const { latestMovie, loading } = useLatestMovie();
 
-  console.log(movie);
+  console.log(latestMovie);
 
   const handleInfoButton = () => {
     setOpeInfo(!openInfo);
   };
+
+  const filteredData = latestMovie.filter((m) => m.id !== movie.id);
 
   const finalImage = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
 
@@ -83,6 +89,26 @@ export default function MovieDetail() {
           )}
         </div>
       </div>
+      <h1 className="text-white ml-10 text-3xl">Popular Movies</h1>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10 mx-10">
+        {loading ? (
+          <LoadingComponent />
+        ) : (
+          filteredData.map((m) => {
+            return (
+              <MovieCard
+                key={m.id}
+                title={m.original_title}
+                overview={m.overview}
+                poster_path={m.backdrop_path}
+                vote={m.vote_average}
+                id={m.id}
+              />
+            );
+          })
+        )}
+      </div>
+      ;
     </>
   );
 }
